@@ -17,7 +17,7 @@ interface UiState {
   selectedSymbol: string
   selectedSignalId: string | null
   isSettingsOpen: boolean
-  settingsTab: 'telegram' | 'channels' | 'exchanges' | 'patterns'
+  settingsTab: 'telegram' | 'channels' | 'exchanges' | 'patterns' | 'license'
   panelSizes: PanelSizes
   tickerFilter: TickerFilter
   tickerSortKey: TickerSortKey

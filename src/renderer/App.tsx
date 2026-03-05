@@ -12,6 +12,7 @@ import { SettingsModal } from './components/settings/SettingsModal'
 import { AlertFormModal } from './components/alerts/AlertFormModal'
 import { TickerBar } from './components/ticker/TickerBar'
 import { MarketIntelligencePanel } from './components/intelligence/MarketIntelligencePanel'
+import { LicenseGate } from './components/license/LicenseGate'
 import { useExchangeData } from './hooks/useExchangeData'
 import { useTelegramFeed } from './hooks/useTelegramFeed'
 import { useNews } from './hooks/useNews'
@@ -20,6 +21,7 @@ import { useAiSignals } from './hooks/useAiSignals'
 import { useSettingsStore } from './store/settingsStore'
 import { useUiStore } from './store/uiStore'
 import { useMarketStore } from './store/marketStore'
+import { useLicenseStore } from './store/licenseStore'
 
 function AppInner() {
   useExchangeData()
@@ -81,10 +83,31 @@ function AppInner() {
 
 export function App() {
   const loadFromMain = useSettingsStore((s) => s.loadFromMain)
+  const licenseState = useLicenseStore((s) => s.state)
+  const initLicense  = useLicenseStore((s) => s.init)
 
   useEffect(() => {
     loadFromMain()
-  }, [loadFromMain])
+    initLicense()
+  }, [loadFromMain, initLicense])
+
+  // Show loading spinner while checking license
+  if (licenseState === 'loading') {
+    return (
+      <div style={{
+        position: 'fixed', inset: 0, background: '#0d1117',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontFamily: 'Courier New', color: '#ff6a00', fontSize: 12, letterSpacing: '0.15em'
+      }}>
+        LOADING...
+      </div>
+    )
+  }
+
+  // Block access until licensed
+  if (licenseState !== 'valid') {
+    return <LicenseGate />
+  }
 
   return <AppInner />
 }

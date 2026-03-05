@@ -20,6 +20,21 @@ export interface ChannelInfo {
   memberCount?: number
 }
 
+export interface LicenseInfo {
+  key: string
+  tier: 'basic' | 'pro' | 'lifetime'
+  status: 'active' | 'expired' | 'invalid'
+  expiresAt: string | null   // ISO string or null for lifetime
+  activatedAt: string
+  deviceId: string
+}
+
+export interface LicenseValidateResult {
+  valid: boolean
+  license?: LicenseInfo
+  error?: string
+}
+
 export interface AppSettings {
   telegram: {
     apiId?: number
@@ -35,6 +50,14 @@ export interface AppSettings {
   }
   ui: {
     selectedSymbol: string
+  }
+  license?: {
+    key: string
+    tier: 'basic' | 'pro' | 'lifetime'
+    expiresAt: string | null
+    activatedAt: string
+    deviceId: string
+    lastChecked: number    // unix timestamp
   }
 }
 

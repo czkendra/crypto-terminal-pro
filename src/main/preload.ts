@@ -1,5 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron'
-import type { TelegramMessage, AuthStatusEvent, ChannelInfo, AppSettings } from '../shared/ipcTypes'
+import type { TelegramMessage, AuthStatusEvent, ChannelInfo, AppSettings, LicenseValidateResult } from '../shared/ipcTypes'
 
 const electronAPI = {
   shell: {
@@ -60,6 +60,23 @@ const electronAPI = {
 
     setNested: (path: string, value: unknown) =>
       ipcRenderer.invoke('settings:setNested', { path, value })
+  },
+
+  license: {
+    getStored: (): Promise<AppSettings['license'] | null> =>
+      ipcRenderer.invoke('license:getStored'),
+
+    getDeviceId: (): Promise<string> =>
+      ipcRenderer.invoke('license:getDeviceId'),
+
+    activate: (key: string): Promise<{ success: boolean; error?: string }> =>
+      ipcRenderer.invoke('license:activate', { key }),
+
+    revalidate: (): Promise<boolean> =>
+      ipcRenderer.invoke('license:revalidate'),
+
+    deactivate: (): Promise<boolean> =>
+      ipcRenderer.invoke('license:deactivate'),
   }
 }
 
