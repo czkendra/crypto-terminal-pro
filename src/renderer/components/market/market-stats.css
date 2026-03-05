@@ -1,0 +1,93 @@
+.market-stats {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-dim);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.ms-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--border-dim);
+  background: var(--bg-tertiary);
+}
+
+.ms-title {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-accent);
+  letter-spacing: 0.1em;
+}
+
+.ms-symbol {
+  font-size: var(--font-size-xs);
+}
+
+.ms-body {
+  padding: var(--space-2) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ms-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 0;
+}
+
+.ms-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+.ms-value {
+  font-size: var(--font-size-xs);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.ms-section-title {
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  margin-top: var(--space-2);
+  margin-bottom: 2px;
+}
+
+/* Long/Short bar */
+.ms-ls-bar-wrap {
+  margin: 2px 0;
+}
+
+.ms-ls-bar {
+  display: flex;
+  height: 6px;
+  border-radius: 1px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.ms-ls-long {
+  background: var(--color-positive);
+  transition: width 0.3s ease;
+}
+
+.ms-ls-short {
+  background: var(--color-negative);
+  transition: width 0.3s ease;
+}
+
+.ms-ls-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}

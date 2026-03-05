@@ -1,0 +1,81 @@
+/* ── Terminal Grid Layout ── */
+.terminal-grid {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 18% 1fr 22% 20%;
+  grid-template-rows: var(--topbar-height) 28px calc(55% - 28px) 1fr;
+  grid-template-areas:
+    "topbar    topbar    topbar    topbar"
+    "tickerbar tickerbar tickerbar tickerbar"
+    "signals   chart     orderbook orderbook"
+    "news      aisignals aisignals history";
+  background: var(--bg-primary);
+  overflow: hidden;
+  gap: 0;
+}
+
+.grid-topbar    { grid-area: topbar;    overflow: hidden; }
+.grid-tickerbar { grid-area: tickerbar; overflow: hidden; }
+.grid-signals   { grid-area: signals;   overflow: hidden; display: flex; flex-direction: column; border-right: 1px solid var(--border-dim); }
+.grid-chart     { grid-area: chart;     overflow: hidden; display: flex; flex-direction: column; }
+.grid-orderbook { grid-area: orderbook; overflow: hidden; display: flex; flex-direction: column; border-left:  1px solid var(--border-dim); }
+.grid-news      { grid-area: news;      overflow: hidden; display: flex; flex-direction: column; border-top: 1px solid var(--border-dim); border-right: 1px solid var(--border-dim); }
+
+/* Bottom right: compact price ticker + signal history stacked */
+.grid-right-col {
+  grid-area: history;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-dim);
+  border-left: 1px solid var(--border-dim);
+}
+
+.grid-ticker-compact {
+  flex: 0 0 42%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.grid-history {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bottom center: Intelligence (left) + AI Signals (right) side-by-side */
+.grid-center-col {
+  grid-area: aisignals;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid var(--border-dim);
+}
+
+.grid-intelligence {
+  flex: 0 0 50%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-dim);
+}
+
+.grid-aisignals {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fallback vertical stack (when no intelligence panel) */
+.grid-ticker {
+  flex: 0 0 54%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border-dim);
+}

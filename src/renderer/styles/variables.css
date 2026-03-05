@@ -1,0 +1,68 @@
+:root {
+  /* ── Core backgrounds (deep navy/slate) ── */
+  --bg-primary:    #0d1117;
+  --bg-secondary:  #0a0e14;
+  --bg-tertiary:   #111820;
+  --bg-elevated:   #161d27;
+  --bg-hover:      #1a2233;
+  --bg-active:     #1e2a3d;
+
+  /* ── Borders ── */
+  --border-dim:    #1a2235;
+  --border-normal: #243045;
+  --border-bright: #2e4060;
+  --border-accent: #ff6a00;
+
+  /* ── Text ── */
+  --text-primary:    #c9d1d9;
+  --text-secondary:  #6e859e;
+  --text-dim:        #334155;
+  --text-accent:     #ff6a00;
+  --text-accent-dim: #cc4400;
+  --text-muted:      #445566;
+
+  /* ── Semantic colours ── */
+  --color-positive:    #00e566;
+  --color-positive-bg: #001a0d;
+  --color-positive-dim:#004d1f;
+  --color-negative:    #ff3b3b;
+  --color-negative-bg: #1a0000;
+  --color-negative-dim:#4d0000;
+  --color-neutral:     #5a6e80;
+  --color-warning:     #ffaa00;
+  --color-warning-bg:  #1a1000;
+  --color-info:        #00aaff;
+  --color-info-dim:    #003d5c;
+  --color-accent:      #ff6a00;
+  --color-accent2:     #00c8ff;
+
+  /* ── Flash bg ── */
+  --flash-positive-bg: #00330f;
+  --flash-negative-bg: #330000;
+
+  /* ── Typography ── */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --font-size-xs:   10px;
+  --font-size-sm:   11px;
+  --font-size-base: 12px;
+  --font-size-md:   13px;
+  --font-size-lg:   14px;
+  --font-size-xl:   16px;
+  --font-size-2xl:  20px;
+
+  /* ── Spacing ── */
+  --sp-1: 2px;  --sp-2: 4px;  --sp-3: 6px;
+  --sp-4: 8px;  --sp-6: 12px; --sp-8: 16px;
+
+  /* legacy compat */
+  --space-1: 2px; --space-2: 4px; --space-3: 6px;
+  --space-4: 8px; --space-6: 12px; --space-8: 16px;
+  --panel-border: 1px solid var(--border-dim);
+  --panel-border-active: 1px solid var(--border-normal);
+
+  /* ── Sizing ── */
+  --topbar-height:    40px;
+  --header-height:    28px;
+  --bottombar-height: 240px;
+  --statusbar-height: 22px;
+}

@@ -1,0 +1,201 @@
+/* ── Terminal panels ─────────────────────────────────────────────────────── */
+
+.terminal-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-dim);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+/* Subtle left accent bar on panels */
+.terminal-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 100%;
+  background: linear-gradient(180deg, var(--border-accent) 0%, transparent 100%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ── Panel header ── */
+.terminal-panel-header {
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-dim);
+  padding: 0 var(--sp-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  height: var(--header-height);
+  gap: var(--sp-3);
+}
+
+.terminal-panel-title {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.terminal-panel-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px; height: 4px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.terminal-panel-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.terminal-panel-body {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Table ── */
+.terminal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.terminal-table thead { position: sticky; top: 0; z-index: 1; }
+
+.terminal-table th {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: var(--sp-2) var(--sp-3);
+  text-align: right;
+  border-bottom: 1px solid var(--border-dim);
+  white-space: nowrap;
+}
+.terminal-table th:first-child { text-align: left; }
+
+.terminal-table td {
+  padding: 3px var(--sp-3);
+  text-align: right;
+  border-bottom: 1px solid var(--border-dim);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.terminal-table td:first-child { text-align: left; }
+
+.terminal-table tbody tr { cursor: pointer; transition: background 0.08s; }
+.terminal-table tbody tr:hover { background: var(--bg-hover); }
+.terminal-table tbody tr.selected {
+  background: var(--bg-active);
+  box-shadow: inset 2px 0 0 var(--text-accent);
+}
+
+/* ── Status dot ── */
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.status-dot.connected    { background: var(--color-positive); box-shadow: 0 0 4px var(--color-positive); }
+.status-dot.connecting,
+.status-dot.reconnecting { background: var(--color-warning); animation: pulse-glow 1.5s ease-in-out infinite; }
+.status-dot.disconnected,
+.status-dot.error        { background: var(--color-negative); }
+
+/* ── Direction badges ── */
+.direction-badge {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+.direction-badge.long {
+  background: var(--color-positive-bg);
+  color: var(--color-positive);
+  border: 1px solid var(--color-positive-dim);
+}
+.direction-badge.short {
+  background: var(--color-negative-bg);
+  color: var(--color-negative);
+  border: 1px solid var(--color-negative-dim);
+}
+
+/* ── Terminal button ── */
+.terminal-btn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-normal);
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  padding: 2px 8px;
+  height: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: all 0.12s;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+.terminal-btn:hover {
+  border-color: var(--text-accent);
+  color: var(--text-accent);
+  background: var(--bg-active);
+}
+.terminal-btn.primary {
+  background: var(--text-accent);
+  border-color: var(--text-accent);
+  color: #000;
+  font-weight: 700;
+}
+.terminal-btn.primary:hover {
+  background: #ff8533;
+  border-color: #ff8533;
+}
+.terminal-btn.scanning {
+  background: var(--bg-active);
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+  animation: pulse-glow 1.2s ease-in-out infinite;
+}
+
+/* ── Terminal input ── */
+.terminal-input {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-normal);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  padding: var(--sp-2) var(--sp-4);
+  width: 100%;
+  transition: border-color 0.1s;
+  border-radius: 2px;
+}
+.terminal-input:focus { border-color: var(--text-accent); }
+.terminal-input::placeholder { color: var(--text-dim); }
+
+/* ── Kbd ── */
+.kbd {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-normal);
+  border-bottom-width: 2px;
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  padding: 0px 4px;
+  border-radius: 2px;
+}

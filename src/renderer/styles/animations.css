@@ -1,0 +1,58 @@
+@keyframes flash-positive {
+  0%   { background-color: var(--flash-positive-bg); }
+  100% { background-color: transparent; }
+}
+
+@keyframes flash-negative {
+  0%   { background-color: var(--flash-negative-bg); }
+  100% { background-color: transparent; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  50%       { box-shadow: 0 0 6px 2px currentColor; opacity: 0.8; }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-10px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scan-line {
+  0%   { top: -2px; }
+  100% { top: 100%; }
+}
+
+.flash-up {
+  animation: flash-positive 0.5s ease-out;
+}
+
+.flash-down {
+  animation: flash-negative 0.5s ease-out;
+}
+
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+.pulse {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.slide-in {
+  animation: slide-in-left 0.2s ease-out;
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease-out;
+}

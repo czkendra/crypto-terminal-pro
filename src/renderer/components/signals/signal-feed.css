@@ -1,0 +1,208 @@
+.signal-feed-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.signal-filter-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border-dim);
+  flex-shrink: 0;
+  padding: 0 var(--space-4);
+}
+
+.signal-filter-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  margin-bottom: -1px;
+  transition: color 0.1s, border-color 0.1s;
+}
+
+.signal-filter-tab:hover { color: var(--text-secondary); }
+.signal-filter-tab.active {
+  color: var(--text-accent);
+  border-bottom-color: var(--text-accent);
+}
+
+.signal-feed-body {
+  overflow-y: auto;
+  padding: var(--space-2);
+  gap: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.feed-live-dot {
+  font-size: 8px;
+  color: var(--color-positive);
+}
+
+/* Signal Card */
+.signal-card {
+  border: 1px solid var(--border-dim);
+  background: var(--bg-secondary);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  border-radius: 1px;
+}
+
+.signal-card.long { border-left: 2px solid var(--color-positive); }
+.signal-card.short { border-left: 2px solid var(--color-negative); }
+.signal-card.conf-high { border-right: 2px solid var(--color-positive); }
+.signal-card.conf-med { border-right: 2px solid var(--color-warning); }
+.signal-card.conf-low { border-right: 2px solid var(--border-dim); }
+
+.signal-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.signal-symbol {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.signal-leverage {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border: 1px solid var(--color-warning);
+  padding: 0 3px;
+}
+
+.signal-time {
+  font-size: var(--font-size-xs);
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.signal-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.signal-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+}
+
+.signal-label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+
+.signal-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.signal-tp { font-variant-numeric: tabular-nums; }
+.signal-sep { color: var(--text-dim); margin: 0 2px; }
+
+.signal-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border-dim);
+  font-size: var(--font-size-xs);
+  gap: var(--space-2);
+}
+
+.signal-channel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.signal-confidence { flex-shrink: 0; }
+
+.signal-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.signal-action-btn {
+  background: transparent;
+  border: 1px solid var(--border-dim);
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  padding: 1px 5px;
+  transition: color 0.1s, border-color 0.1s;
+}
+
+.signal-action-btn:hover {
+  color: var(--text-accent);
+  border-color: var(--text-accent);
+}
+
+/* Raw message row */
+.raw-message-row {
+  border-bottom: 1px solid var(--border-dim);
+  padding: var(--space-2) var(--space-3);
+}
+
+.raw-message-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  font-size: var(--font-size-xs);
+}
+
+.raw-channel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 70%;
+}
+
+.raw-time { flex-shrink: 0; font-variant-numeric: tabular-nums; }
+
+.raw-message-text {
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.signal-feed-empty {
+  text-align: center;
+  padding: var(--space-10);
+  font-size: var(--font-size-sm);
+  line-height: 2;
+}
+
+.feed-empty-hint {
+  font-size: var(--font-size-xs);
+  color: var(--text-dim);
+  margin-top: var(--space-4);
+}

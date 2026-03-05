@@ -1,0 +1,119 @@
+.price-ticker-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ticker-filter-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border-dim);
+  flex-shrink: 0;
+  padding: 0 var(--space-4);
+}
+
+.ticker-filter-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  margin-bottom: -1px;
+  transition: color 0.1s, border-color 0.1s;
+}
+
+.ticker-filter-tab:hover {
+  color: var(--text-secondary);
+}
+
+.ticker-filter-tab.active {
+  color: var(--text-accent);
+  border-bottom-color: var(--text-accent);
+}
+
+.price-ticker-body {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.price-ticker-table {
+  width: 100%;
+}
+
+.sortable-th {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.sortable-th:hover {
+  color: var(--text-primary);
+}
+
+.sortable-th.sort-active {
+  color: var(--text-accent);
+}
+
+.sort-arrow {
+  font-size: 9px;
+  margin-left: 2px;
+}
+
+.ticker-row {
+  transition: background 0.1s;
+}
+
+.ticker-symbol {
+  font-weight: 600;
+}
+
+.symbol-base {
+  color: var(--text-primary);
+  font-size: var(--font-size-md);
+}
+
+.symbol-quote {
+  color: var(--text-dim);
+  font-size: var(--font-size-xs);
+  margin-left: 1px;
+}
+
+.ticker-price {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: var(--font-size-md);
+}
+
+.ticker-change {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.ticker-volume {
+  font-variant-numeric: tabular-nums;
+}
+
+.ticker-oi-change {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--font-size-xs);
+}
+
+.ticker-funding {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--font-size-xs);
+}
+
+.ticker-exchange {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.04em;
+}
+
+.ticker-empty {
+  text-align: center !important;
+  padding: var(--space-8) !important;
+  font-size: var(--font-size-sm);
+}

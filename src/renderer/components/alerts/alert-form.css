@@ -1,0 +1,126 @@
+.alert-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-modal {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-normal);
+  padding: var(--space-6);
+  min-width: 300px;
+  max-width: 360px;
+  width: 100%;
+}
+
+.alert-modal-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.alert-modal-title {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.alert-modal-symbol {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.alert-close-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  padding: 2px 4px;
+}
+
+.alert-close-btn:hover {
+  color: var(--text-primary);
+}
+
+.alert-current-price {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-xs);
+  margin-bottom: var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-dim);
+}
+
+.alert-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.alert-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.alert-form-label {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+}
+
+.alert-type-group {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.alert-type-btn {
+  flex: 1;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-dim);
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.05em;
+  padding: var(--space-2) var(--space-4);
+  transition: all 0.1s;
+}
+
+.alert-type-btn.active {
+  border-color: var(--text-accent);
+  color: var(--text-accent);
+  background: rgba(255, 165, 0, 0.05);
+}
+
+.alert-price-input {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-normal);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  padding: var(--space-3) var(--space-4);
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+
+.alert-price-input:focus {
+  outline: none;
+  border-color: var(--text-accent);
+}
+
+.alert-form-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+  margin-top: var(--space-2);
+}

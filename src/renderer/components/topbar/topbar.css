@@ -1,0 +1,133 @@
+/* ── Top Bar ── */
+.topbar {
+  grid-area: topbar;
+  background: linear-gradient(180deg, #0f1520 0%, #0a0e14 100%);
+  border-bottom: 1px solid var(--border-normal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  height: var(--topbar-height);
+  flex-shrink: 0;
+  z-index: 100;
+  gap: 8px;
+  position: relative;
+}
+
+/* Subtle bottom glow */
+.topbar::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%);
+  opacity: 0.4;
+}
+
+.topbar-left   { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.topbar-center { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; overflow: hidden; }
+.topbar-right  { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+
+.topbar-divider { width: 1px; height: 16px; background: var(--border-dim); flex-shrink: 0; }
+
+/* ── Logo ── */
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  user-select: none;
+}
+.logo-text   { font-size: 15px; font-weight: 800; color: var(--text-primary); letter-spacing: 0.15em; }
+.logo-accent { font-size: 15px; font-weight: 800; color: var(--color-accent); letter-spacing: 0.15em; }
+.logo-version { font-size: 9px; color: var(--text-dim); margin-left: 4px; align-self: flex-end; margin-bottom: 2px; }
+
+/* ── Clock ── */
+.topbar-clock {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-sm);
+}
+.clock-date     { color: var(--text-dim); }
+.clock-divider  { color: var(--border-normal); }
+.clock-utc      { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.clock-local    { color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+/* ── Market stats ── */
+.topbar-market-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  flex-shrink: 0;
+  padding: 2px 6px;
+  border: 1px solid var(--border-dim);
+  border-radius: 2px;
+  background: var(--bg-elevated);
+}
+.stat-label    { color: var(--text-dim); letter-spacing: 0.06em; }
+.stat-value    { color: var(--text-primary); font-variant-numeric: tabular-nums; font-weight: 600; }
+.stat-sublabel { font-size: 9px; letter-spacing: 0.04em; opacity: 0.8; }
+.stat-change   { font-size: 10px; font-variant-numeric: tabular-nums; }
+.stat-change.positive { color: var(--color-positive); }
+.stat-change.negative { color: var(--color-negative); }
+
+/* ── Fear & Greed ── */
+.fg-badge    { gap: 5px; }
+.fg-loading  { color: var(--text-dim); }
+.fg-extreme-fear  { border-color: #b22222 !important; color: #ff4444 !important; }
+.fg-fear          { border-color: #cc6600 !important; color: #ff8800 !important; }
+.fg-neutral       {}
+.fg-greed         { border-color: #337733 !important; color: #44dd44 !important; }
+.fg-extreme-greed { border-color: #005500 !important; color: #00ee00 !important; }
+
+/* ── Exchange status ── */
+.topbar-exchange-status { display: flex; align-items: center; gap: 8px; }
+.exchange-status-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+}
+.exchange-name { color: var(--text-secondary); }
+.exchange-status-item.connected .exchange-name  { color: var(--text-primary); }
+.exchange-status-item.error .exchange-name      { color: var(--color-negative); }
+
+/* ── Telegram status ── */
+.topbar-tg-status {
+  display: flex; align-items: center; gap: 4px;
+  font-size: var(--font-size-xs); letter-spacing: 0.06em;
+  padding: 2px 6px; border: 1px solid var(--border-dim); border-radius: 2px;
+  flex-shrink: 0; background: var(--bg-elevated);
+}
+.topbar-tg-status.connected    { border-color: var(--color-positive); color: var(--color-positive); }
+.topbar-tg-status.connecting   { border-color: var(--color-warning); color: var(--color-warning); }
+.topbar-tg-status.disconnected { color: var(--text-dim); }
+.topbar-tg-status.error        { border-color: var(--color-negative); color: var(--color-negative); }
+
+/* ── Alert badge ── */
+.topbar-alert-badge {
+  display: flex; align-items: center; gap: 4px;
+  background: rgba(255,170,0,0.1);
+  border: 1px solid var(--color-warning);
+  color: var(--color-warning);
+  cursor: pointer; padding: 2px 6px;
+  font-family: var(--font-mono); font-size: var(--font-size-xs); letter-spacing: 0.06em;
+  border-radius: 2px;
+  animation: badge-blink 1s ease-in-out infinite;
+}
+.topbar-alert-badge:hover { background: rgba(255,170,0,0.2); }
+.alert-count { font-weight: 700; }
+
+@keyframes badge-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* ── Settings ── */
+.topbar-settings-btn { font-size: var(--font-size-xs); }
+.topbar-kbd { font-size: var(--font-size-xs); color: var(--text-dim); }
+.topbar-kbd kbd {
+  background: var(--bg-elevated); border: 1px solid var(--border-normal);
+  border-bottom-width: 2px; padding: 1px 4px;
+  font-size: var(--font-size-xs); font-family: var(--font-mono);
+  color: var(--text-dim); border-radius: 2px;
+}

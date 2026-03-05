@@ -1,0 +1,63 @@
+@import './variables.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+  user-select: none;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-normal); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-bright); }
+
+/* ── Selection ── */
+::selection { background: var(--text-accent); color: #000; }
+
+/* ── Form elements ── */
+input, button, select, textarea {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  background: transparent;
+  border: var(--panel-border);
+  outline: none;
+}
+input:focus { border-color: var(--text-accent); }
+button { cursor: pointer; }
+
+/* ── Colour utilities ── */
+.positive  { color: var(--color-positive); }
+.negative  { color: var(--color-negative); }
+.neutral   { color: var(--color-neutral); }
+.warning   { color: var(--color-warning); }
+.accent    { color: var(--text-accent); }
+.dim       { color: var(--text-dim); }
+.secondary { color: var(--text-secondary); }
+.info      { color: var(--color-info); }
+.number    { font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }

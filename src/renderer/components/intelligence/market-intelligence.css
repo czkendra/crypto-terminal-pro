@@ -1,0 +1,464 @@
+/* ─── Market Intelligence Panel ───────────────────────────────────────────── */
+
+.mi-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mi-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 11px;
+}
+
+.mi-updated {
+  font-size: 9px;
+  margin-left: auto;
+}
+
+/* ── Regime chip in header ── */
+.mi-regime-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 8px;
+}
+
+.mi-chip-positive { background: rgba(0,229,102,0.15);  color: var(--color-positive); }
+.mi-chip-negative { background: rgba(255,59,59,0.15);  color: var(--color-negative); }
+.mi-chip-warning  { background: rgba(255,165,0,0.15);  color: var(--color-accent);   }
+.mi-chip-neutral  { background: rgba(128,128,128,0.1); color: var(--text-dim);        }
+
+/* ── Tab bar ── */
+.mi-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-dim);
+  flex-shrink: 0;
+}
+
+.mi-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  padding: 4px 4px 3px;
+  text-align: center;
+  transition: color 0.1s, border-color 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  margin-bottom: -1px;
+}
+
+.mi-tab:hover   { color: var(--text-secondary); }
+.mi-tab.active  { color: var(--text-accent); border-bottom-color: var(--text-accent); }
+
+.mi-tab-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+}
+.mi-tab-dot.positive { background: var(--color-positive); }
+.mi-tab-dot.negative { background: var(--color-negative); }
+.mi-tab-dot.warning  { background: var(--color-accent);   }
+.mi-tab-dot.neutral  { background: var(--text-dim);        }
+
+.mi-tab-score {
+  font-size: 8px;
+  font-weight: 700;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+.mi-tab-score.positive { color: var(--color-positive); background: rgba(0,229,102,0.1); }
+.mi-tab-score.negative { color: var(--color-negative); background: rgba(255,59,59,0.1); }
+.mi-tab-score.neutral  { color: var(--text-dim); }
+
+/* ── Body ── */
+.mi-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mi-tab-content {
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mi-section-title {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  padding: 3px 0 1px;
+  border-bottom: 1px solid var(--border-dim);
+  margin-bottom: 2px;
+}
+
+/* ── Regime card ── */
+.mi-regime-card {
+  border-radius: 4px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-dim);
+}
+
+.mi-regime-card.mi-regime-positive { border-color: rgba(0,229,102,0.3); background: rgba(0,229,102,0.05); }
+.mi-regime-card.mi-regime-negative { border-color: rgba(255,59,59,0.3); background: rgba(255,59,59,0.05); }
+.mi-regime-card.mi-regime-warning  { border-color: rgba(255,165,0,0.3);  background: rgba(255,165,0,0.05);  }
+.mi-regime-card.mi-regime-neutral  { border-color: var(--border-dim);  background: var(--bg-elevated); }
+
+.mi-regime-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.mi-regime-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+}
+
+.mi-regime-conf {
+  font-size: 9px;
+  color: var(--text-dim);
+}
+
+.mi-regime-desc {
+  font-size: 10px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.mi-regime-conf-bar {
+  height: 3px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mi-regime-conf-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* ── Correlations ── */
+.mi-corr-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mi-corr-cell {
+  display: grid;
+  grid-template-columns: 40px 1fr 36px 36px;
+  align-items: center;
+  gap: 6px;
+}
+
+.mi-corr-symbol {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.mi-corr-bar-track {
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mi-corr-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.mi-corr-fill.pos { background: var(--color-positive); }
+.mi-corr-fill.neg { background: var(--color-negative); }
+
+.mi-corr-val  { font-size: 9px; font-variant-numeric: tabular-nums; text-align: right; }
+.mi-corr-delta { font-size: 9px; font-variant-numeric: tabular-nums; text-align: right; }
+
+/* ── Sentiment gauge ── */
+.mi-sentiment-gauge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.mi-gauge-svg {
+  width: 130px;
+  height: 72px;
+}
+
+.mi-gauge-score {
+  font-size: 28px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+  margin-top: -10px;
+  line-height: 1;
+}
+
+.mi-gauge-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+.mi-gauge-label.positive { color: var(--color-positive); }
+.mi-gauge-label.negative { color: var(--color-negative); }
+.mi-gauge-label.neutral  { color: var(--text-dim); }
+
+/* ── Sentiment components ── */
+.mi-component-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mi-component-row {
+  display: grid;
+  grid-template-columns: 1fr 28px 80px 28px;
+  align-items: center;
+  gap: 5px;
+}
+
+.mi-component-label {
+  font-size: 9px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mi-component-wt {
+  font-size: 8px;
+  text-align: right;
+}
+
+.mi-component-bar-track {
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mi-component-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.mi-component-bar-fill.positive { background: var(--color-positive); }
+.mi-component-bar-fill.negative { background: var(--color-negative); }
+
+.mi-component-val {
+  font-size: 9px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* ── Funding heatmap ── */
+.mi-funding-legend {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.mi-legend-chip {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+
+.mi-legend-chip.negative { color: var(--color-negative); background: rgba(255,59,59,0.1); }
+.mi-legend-chip.warning  { color: var(--color-accent);   background: rgba(255,165,0,0.1);  }
+.mi-legend-chip.dim      { color: var(--text-dim);       background: var(--bg-elevated); }
+.mi-legend-chip.info     { color: #4fc3f7;               background: rgba(79,195,247,0.1);}
+.mi-legend-chip.positive { color: var(--color-positive); background: rgba(0,229,102,0.1); }
+
+.mi-funding-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mi-funding-row {
+  display: grid;
+  grid-template-columns: 44px 1fr 60px 64px;
+  align-items: center;
+  gap: 5px;
+}
+
+.mi-funding-sym {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.mi-funding-bar-track {
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mi-funding-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.mi-funding-bar-fill.negative { background: var(--color-negative); }
+.mi-funding-bar-fill.warning  { background: var(--color-accent);   }
+.mi-funding-bar-fill.dim      { background: var(--text-dim);       }
+.mi-funding-bar-fill.info     { background: #4fc3f7;               }
+.mi-funding-bar-fill.positive { background: var(--color-positive); }
+
+.mi-funding-rate {
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.mi-funding-ann {
+  font-size: 8px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ── Macro ── */
+.mi-macro-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.mi-macro-card {
+  border-radius: 4px;
+  padding: 6px 8px;
+  border: 1px solid var(--border-dim);
+  text-align: center;
+}
+
+.mi-macro-card.positive { border-color: rgba(0,229,102,0.25); background: rgba(0,229,102,0.05); }
+.mi-macro-card.negative { border-color: rgba(255,59,59,0.25); background: rgba(255,59,59,0.05); }
+.mi-macro-card.neutral  { background: var(--bg-elevated); }
+
+.mi-macro-card-label {
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin-bottom: 3px;
+}
+
+.mi-macro-card-value {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.mi-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.mi-tag {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-dim);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 2px 8px;
+}
+
+/* ── Liquidation zones ── */
+.mi-liq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mi-liq-row {
+  display: grid;
+  grid-template-columns: 36px 80px 44px 48px 36px;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 0;
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.mi-liq-side {
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.mi-liq-price {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mi-liq-dist {
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.mi-liq-usd {
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.mi-liq-strength {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+
+.mi-liq-strength.high   { color: var(--color-negative); }
+.mi-liq-strength.medium { color: var(--color-accent);   }
+.mi-liq-strength.low    { color: var(--text-dim);       }
+
+/* ── Color utilities ── */
+.positive { color: var(--color-positive); }
+.negative { color: var(--color-negative); }
+.warning  { color: var(--color-accent);   }
+.neutral  { color: var(--text-secondary); }
+.dim      { color: var(--text-dim);       }
+.info     { color: #4fc3f7;               }
